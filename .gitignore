@@ -2,6 +2,7 @@
 **/terraform.tfstate*
 **/terraform.tfvars
 **/*.auto.tfvars
+**/*.auto.tfvars.json
 **/.terraform.tfstate.lock.info
 **/.terraform.lock.hcl
 !tests/**/terraform.tfvars

@@ -30,6 +30,13 @@ resource "local_file" "tfvars" {
   content         = jsonencode(local.tfvars)
 }
 
+resource "local_file" "tfvars_initial" {
+  for_each        = var.outputs_location == null ? {} : { 1 = 1 }
+  file_permission = "0644"
+  filename        = "${try(pathexpand(var.outputs_location), "")}/tfvars/init-bootstrap.auto.tfvars.json"
+  content         = jsonencode(local.tfvars_initial)
+}
+
 resource "local_file" "tfvars_globals" {
   for_each        = var.outputs_location == null ? {} : { 1 = 1 }
   file_permission = "0644"

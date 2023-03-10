@@ -81,6 +81,15 @@ locals {
     organization    = var.organization
     prefix          = var.prefix
   }
+  tfvars_initial = {
+    groups                         = var.groups
+    federated_identity_providers   = var.federated_identity_providers
+    cicd_repositories              = var.cicd_repositories
+    locations                      = var.locations
+    prefix                         = var.prefix
+    organization                   = var.organization
+    billing_account                = var.billing_account
+  }
 }
 
 output "automation" {
