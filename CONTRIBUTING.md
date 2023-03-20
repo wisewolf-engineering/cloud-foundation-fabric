@@ -6,7 +6,7 @@ Contributors are the engine that keeps Fabric alive so if you were or are planni
 
 * [I just found a bug / have a feature request](#i-just-found-a-bug---have-a-feature-request)
 * [Quick developer workflow](#quick-developer-workflow)
-* [Developer's handbook](#developer-s-handbook)
+* [Developer's handbook](#developers-handbook)
   + [The Zen of Fabric](#the-zen-of-fabric)
   + [Design principles in action](#design-principles-in-action)
   + [FAST stage design](#fast-stage-design)
@@ -310,9 +310,11 @@ module "simple-vm-example" {
   zone       = "europe-west1-b"
   name       = "test"
   boot_disk  = {
-    image = "projects/debian-cloud/global/images/family/cos-97-lts"
-    type = "pd-balanced"
-    size = 10
+    initialize_params = {
+      image = "projects/debian-cloud/global/images/family/cos-97-lts"
+      type = "pd-balanced"
+      size = 10
+    }
   }
 }
 ```
